@@ -1,0 +1,17 @@
+std::string Board::read(unsigned int row, unsigned int col, const Direction direction, const unsigned int numOfChars)
+{
+    if(numOfChars == 0)
+        return "";
+    string result;
+    double index_key = (row * 10 + col) / 10;
+    for (size_t i = 0; i < numOfChars; i++)
+    {
+        if(direction == Direction::Vertical)
+        {
+            result += theBoard.at(row+i).at(col);
+        }
+        else
+        {
+            result += theBoard.at(row).at(col+i);
+        }
+    }
